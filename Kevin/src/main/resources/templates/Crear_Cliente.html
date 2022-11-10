@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Registro de usuario</title>
+	<!-- CSS and Bootstrap -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="/CSS/Crear_Cliente.css">
+	<link rel="stylesheet" href="/CSS/Slide - Menú.css">
+	<!-- CSS and Bootstrap -->
+
+</head>
+<!-- Logo -->
+<link rel="icon" href="/IMG/user-tie-solid.svg" />
+<!-- Logo -->
+</head>
+
+<!--Header-->
+<header>
+
+	<a class="">
+		<img src="/IMG/Header.png.gif" style="margin-top:-1% ; width: 100.1%; " />
+
+</header>
+<!--Header-->
+
+<body>
+
+	<!--JavaScript-->
+	<script src="/js/validar.js"></script>
+	<script src="/js/Slide - menú.js"></script>
+	<!--JavaScript-->
+
+	<!--Menu-->
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="Clientes">Inicio</a>
+	</div>
+
+	<div class="Menu">
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menú</span>
+	</div>
+	<!--Menu-->
+
+
+
+
+
+	<br>
+	<div class="formulario">
+		<div class="row">
+			<div>
+				<h1>Nuevo cliente</h1>
+				<div class="card-body">
+					<form th:action="@{/clientes}" th:object="${clientes}" method="POST">
+						<div>
+							<label>Número de documento : </label>
+							<input th:onkeypress="return SoloNumeros(event);" type="text" name="numero_documento"
+								th:field="*{Numero_documento}" class="form-control"
+								placeholder="Digite numero de documento  " required>
+						</div>
+
+						<div>
+							<label>Nombres : </label>
+							<input th:onkeypress="return SoloLetras(event);" type="text" name="nombre"
+								th:field="*{Nombre}" class="form-control" placeholder="Digite nombres  " required>
+						</div>
+
+						<div>
+							<label>Apellidos : </label>
+							<input type="text" name="apellido" th:field="*{Apellido}" class="form-control"
+								placeholder="Digite apellidos  " required th:onkeypress="return SoloLetras(event);">
+						</div>
+
+						<div>
+							<label>Fecha nacimiento : </label>
+							<input type="date" name="Fecha_Nacimiento" th:field="*{Fecha_Nacimiento}"
+								class="form-control" placeholder="Digite la fecha  " required>
+						</div>
+
+						<div>
+							<label>Edad : </label>
+							<input th:onkeypress="return SoloNumeros(event);" type="text" name="edad"
+								class="form-control" placeholder="Digite la edad" required>
+						</div>
+
+						<div>
+							<label>Ciudad : </label>
+							<br>
+							<select class="form-control" aria-label="Default select example" th:field="*{Ciudad}">
+
+								<option value="Armenia">Armenia</option>
+								<option value="Barranquilla">Barranquilla</option>
+								<option value="Bogotá">Bogotá</option>
+								<option value="Bucaramanga">Bucaramanga</option>
+								<option value="Cali">Cali</option>
+								<option value="Cartagena">Cartagena</option>
+								<option value="Cúcuta">Cúcuta</option>
+								<option value="Ibagué">Ibagué</option>
+								<option value="Manizales">Manizales</option>
+								<option value="Medellín">Medellín</option>
+								<option value="Monteria">Monteria</option>
+								<option value="Pasto">Pasto</option>
+								<option value="Pereira">Pereira</option>
+								<option value="Popayán">Popayán</option>
+								<option value="Santa Marta">Santa Marta</option>
+								<option value="Valledupar">Valledupar</option>
+								<option value="Villavicencio">Villavicencio</option>
+
+							</select>
+						</div>
+
+						<div>
+							<label>Correo : </label>
+							<input type="email" name="Correo" th:field="*{Correo}" class="form-control"
+								placeholder="Digite dirección de correo electronico  " required>
+						</div>
+
+						<div>
+							<label>Teléfono : </label>
+							<input th:onkeypress="return SoloNumeros(event);" type="text" name="Telefono"
+								th:field="*{Telefono}" class="form-control" placeholder="Digite número de contacto  "
+								required maxlength="10">
+						</div>
+
+						<div>
+							<label>Ocupación : </label>
+							<br>
+							<select class="form-control" aria-label="Default select example" th:field="*{Ocupacion}">
+
+								<option value="Empleado">Empleado</option>
+								<option value="Independiente">Independiente</option>
+								<option value="Pensionado">Pensionado</option>
+							</select>
+						</div>
+
+
+						<div>
+							<button type="reset" class="btn btn-success">Limpiar</button>
+						</div>
+						<div>
+							<button class="btn btn-success">Guardar</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--footer-->
+
+	<footer>
+		<div>
+
+			<img src="/IMG/Footer.gif" alt="" style=" width: 100.1%; ">
+		</div>
+	</footer>
+
+	<!--footer-->
+</body>
+
+</html>
